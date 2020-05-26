@@ -1,0 +1,71 @@
+@import './../../../styles/variables';
+
+$card-bg: $dark;
+$card-color: $light;
+$info-color: $theme;
+$character-name-size: $font-size20;
+$character-info-size: $font-size12;
+$card-height: 200px;
+
+.character {
+  background: $card-bg;
+  margin-bottom: 30px;
+  @include border-radius(8px);
+  @include box-shadow(0 0 15px 1px lighten($card-bg, 45%));
+  .figure {
+    overflow: hidden;
+    position: relative;
+    max-height: $card-height;
+    margin: 0;
+    img {
+      max-width: 100%;
+      @include border-radius(5px 5px 0 0);
+    }
+    .caption {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 5px 10px;
+      background: rgba($card-bg, 0.8);
+      color: $card-color;
+      .name {
+        font-size: $character-name-size;
+        margin: 0 0 2px;
+      }
+      .info {
+        margin: 0;
+        font-size: $character-info-size;
+      }
+    }
+  }
+  .description {
+    list-style: none;
+    margin: 0;
+    padding: 10px;
+    min-height: 200px;
+    font-size: $character-info-size;
+    li {
+      @include flexbox();
+      @include align-items(center);
+      margin-bottom: 5px;
+      padding-bottom: 5px;
+      border-bottom: 1px solid rgba($card-color, 0.1);
+      &:last-child {
+        margin-bottom: 0;
+        padding-bottom: 0;
+        border-bottom: none;
+      }
+      .left {
+        color: $card-color;
+        margin-right: 10px;
+        max-width: 50px;
+      }
+      .right {
+        color: $info-color;
+        flex: 1;
+        text-align: right;
+      }
+    }
+  }
+}

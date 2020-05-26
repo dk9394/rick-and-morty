@@ -1,0 +1,23 @@
+<section *ngIf="filterSelected" class="selected-filters">
+    <h1 class="title">Selected Filters</h1>
+    <ul class="tags">
+        <ng-container *ngFor="let tag of speciesFilters; let i = index;">
+            <li *ngIf="tag.checked">
+                <span class="name">{{ tag.name }}</span>
+                <i class="fas fa-times-circle icon" (click)="removeTag(tag)"></i>
+            </li>
+        </ng-container>
+        <ng-container *ngFor="let tag of genderFilters; let i = index;">
+            <li *ngIf="tag.checked">
+                <span class="name">{{ tag.name }}</span>
+                <i class="fas fa-times-circle icon" (click)="removeTag(tag)"></i>
+            </li>
+        </ng-container>
+        <ng-container *ngFor="let tag of originFilters; let i = index;">
+            <li *ngIf="tag.checked">
+                <span class="name">{{ tag.name }}</span>
+                <i class="fas fa-times-circle icon" (click)="removeTag(tag)"></i>
+            </li>
+        </ng-container>
+    </ul>
+</section>

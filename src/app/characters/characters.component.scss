@@ -1,0 +1,47 @@
+@import './../../styles/variables';
+
+$border-color: $light;
+
+.search-sort {
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid darken($border-color, 10%);
+  .form-group {
+    margin: 0;
+    .label {
+      font-weight: 500;
+    }
+  }
+}
+
+.chars-list {
+  min-height: 200px;
+}
+
+.pages {
+  @include flexbox();
+  @include align-items(center);
+  @include justify-content(center);
+  margin: 30px 0 10px;
+  .next-prev {
+    margin-right: 20px;
+    .btn {
+      min-width: 100px;
+      cursor: pointer;
+    }
+  }
+}
+
+@media (min-width: $mobile-xl) {
+  .search-sort {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid darken($border-color, 10%);
+    .form-group {
+      margin: 0;
+      .label {
+        font-weight: 500;
+      }
+    }
+  }
+}

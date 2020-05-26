@@ -1,0 +1,44 @@
+@import './../../styles/variables';
+
+$filters-block-bg: $theme;
+$filters-color: $light;
+$filters-shadow: $dark;
+$chars-bg: darken($light, 1%);
+$title-font-size: $font-size24;
+$filters-block-width: 250px;
+
+.home-page {
+  .filters {
+    background: $filters-block-bg;
+    padding: 20px;
+    color: $filters-color;
+    position: relative;
+    z-index: 1;
+    .title {
+      font-size: $title-font-size;
+      margin: 0 0 25px;
+      padding: 0 0 10px;
+      border-bottom: 1px solid rgba($filters-color, 0.5);
+    }
+  }
+  .chars {
+    background: $chars-bg;
+    padding: 1rem;
+  }
+}
+
+@media (min-width: $laptop) {
+  .home-page {
+    @include flexbox();
+    @include align-items(stretch);
+    min-height: 100vh;
+    .filters {
+      @include box-shadow(0 0 10px 1px lighten($filters-shadow, 15%));
+      width: $filters-block-width;
+    }
+    .chars {
+      @include flex(1);
+      padding: 20px 40px 20px 45px;
+    }
+  }
+}

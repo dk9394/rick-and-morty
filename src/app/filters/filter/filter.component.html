@@ -1,0 +1,12 @@
+<section class="options-list">
+    <h2 class="title">{{ title }}</h2>
+    <section class="list">
+        <div *ngFor="let option of options; let i = index;">
+            <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" [id]="option.key + i" [checked]="option.checked"
+                    (change)="onToggleFilter(option)">
+                <label class="custom-control-label" [for]="option.key + i">{{ option.name }}</label>
+            </div>
+        </div>
+    </section>
+</section>

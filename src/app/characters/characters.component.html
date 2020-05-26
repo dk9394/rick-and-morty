@@ -1,0 +1,40 @@
+<app-filter-tags></app-filter-tags>
+<section class="search-sort">
+    <div class="row">
+        <div class="col-6 col-sm-4 col-md-3">
+            <div class="form-group">
+                <label for="search" class="label">Search by Name</label>
+                <input id="search" class="form-control" type="text" name="searchBy" [(ngModel)]="searchBy"
+                    placeholder="Type to search ..." />
+            </div>
+        </div>
+        <div class="col-6 col-sm-4 col-md-3 offset-sm-4 offset-md-6">
+            <div class="form-group">
+                <label for="sortBy" class="label">Sort by</label>
+                <select id="sortBy" class="form-control" name="sort" [(ngModel)]="sortBy">
+                    <option value="asc">Ascending</option>
+                    <option value="desc">Descending</option>
+                </select>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="chars-list">
+    <div class="row">
+        <div *ngFor="let char of characters | filterbySpecies: filterBySpecies | filterbyGender: filterByGender | filterbyOrigin: filterByOrigin | search: searchBy | sort: sortBy; let i = index;"
+            class="col-6 col-sm-4 col-md-3">
+            <app-character [character]="char"></app-character>
+        </div>
+    </div>
+</div>
+<hr>
+<section class="pages">
+    <div class="btn-group next-prev" role="group" aria-label="Basic example">
+        <button type="button" class="btn btn-secondary" (click)="onPrev()" [disabled]="pageCount === 1">Prev</button>
+        <button type="button" class="btn btn-secondary" (click)="onNext()"
+            [disabled]="pageCount === info?.pages">Next</button>
+    </div>
+    <div class="count">
+        {{ pageCount }} of {{ info?.pages }}
+    </div>
+</section>

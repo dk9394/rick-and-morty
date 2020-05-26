@@ -1,0 +1,50 @@
+@import './../../../../styles/variables';
+
+$title-font-size: $font-size24;
+$tag-bg: lighten($dark, 35%);
+$tag-color: $light;
+
+.selected-filters {
+  margin-bottom: 10px;
+  .title {
+    font-size: $title-font-size;
+    margin: 0 0 10px;
+    padding: 0;
+  }
+  .tags {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    &::after {
+      content: '';
+      display: block;
+      margin: 0;
+      padding: 0;
+      height: 0;
+      width: 0;
+      clear: both;
+    }
+    li {
+      @include flexbox();
+      @include align-items(center);
+      @include border-radius(6px);
+      float: left;
+      margin: 0 20px 20px 0;
+      background: $tag-bg;
+      color: $tag-color;
+      padding: 0 10px;
+      line-height: 36px;
+      &:last-child {
+        margin-right: 0;
+      }
+      .icon {
+        color: lighten($tag-bg, 20%);
+        margin-left: 10px;
+        cursor: pointer;
+        &:hover {
+          color: darken($tag-bg, 20%);
+        }
+      }
+    }
+  }
+}
